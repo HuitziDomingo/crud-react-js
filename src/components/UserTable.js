@@ -1,5 +1,5 @@
 
-const UserTable = ({ users }) => {
+const UserTable = ({ users, deleteUser }) => {
     return (
         <div>
             <table className="table">
@@ -22,7 +22,7 @@ const UserTable = ({ users }) => {
                                 <td>{x.rfc}</td>
                                 <td>
                                     <button className="btn btn-secondary m-1">Actualizar</button>
-                                    <button className="btn btn-secondary m-1">Borrar</button>
+                                    <button className="btn btn-secondary m-1" onClick={() => deleteUser(x.id)} >Borrar</button>
                                 </td>
                             </tr>
                         ))
