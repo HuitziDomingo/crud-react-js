@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { UserTable, AddUserForm } from './components'
 
-function App() {
+import { useState } from 'react'
+
+const App = () => {
+
+  //Logica para guardar un usuario
+  const initialData = [
+    { id: 1, name: 'Mey', tel: 5465464, nss: 465456, rfc: 464646 },
+    { id: 2, name: 'Mey2', tel: 54654642, nss: 4654562, rfc: 4646462 },
+    { id: 3, name: 'Mey3', tel: 54654643, nss: 4654563, rfc: 4646463 },
+  ]
+
+  const [users, setUsers] = useState(initialData)
+
+  const addUser = (user) => {
+    user.id = users.length + 1
+    setUsers([...users, user])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="text-center mb-5">Sistema CRUD para trabajadores</h1>
+      <div className="row">
+        <div className="col-md-5">
+          <h2 className="mb-4">Agregar nuevo usuario</h2>
+          <AddUserForm addUser={addUser}/>
+        </div>
+        <div className="col-md-7">
+          <h2 className="text-center mb-4">Ver lista de trabajadores</h2>
+          <UserTable users={users} />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
