@@ -7,7 +7,6 @@ const Pokemon = () => {
 
     const loadPokemons = async () => {
         let data = await getPokemons()
-        console.log(data.results)
         setPokemons(data.results)
     }
 

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootswatch/dist/vapor/bootstrap.min.css'
 import { Pokemon } from './components'
 
 ReactDOM.render(
